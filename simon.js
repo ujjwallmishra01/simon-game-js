@@ -10,69 +10,68 @@ let acceptingInput = false;
 let h2 = document.querySelector('#status');
 
 function startGame() {
-    if (!started) {
-        started = true;
-        level = 0;
-        gameSeq = [];
-        h2.innerText = 'Game Started!';
-        levelUp();
-    }
+    if (started) return;
+
+    started = true;
+    level = 0;
+    gameSeq = [];
+    userSeq = [];
+    h2.innerText = 'Game Started!';
+    levelUp();
 }
 
 document.addEventListener('keypress', startGame);
 
-document.addEventListener('click', startGame);
+h2.addEventListener('click', startGame);
 
 
 function gameFlash(btn) {
     btn.classList.add('flash');
-    setTimeout(() => {
-        btn.classList.remove('flash');
-    }, 300);
+    setTimeout(() => btn.classList.remove('flash'), 300);
 }
 
 function userFlash(btn) {
     btn.classList.add('userFlash');
-    setTimeout(() => {
-        btn.classList.remove('userFlash');
-    }, 150);
+    setTimeout(() => btn.classList.remove('userFlash'), 150);
 }
 
+
 function levelUp() {
+    acceptingInput = false;
     userSeq = [];
     level++;
+
     h2.innerText = `Level ${level}`;
-    acceptingInput = false;
 
     let randIdx = Math.floor(Math.random() * 4);
     let randColor = btns[randIdx];
-    let btn = document.querySelector(`#${randColor}`);
-
     gameSeq.push(randColor);
+
+    let btn = document.querySelector(`#${randColor}`);
 
     setTimeout(() => {
         gameFlash(btn);
         acceptingInput = true;
-    }, 500);
+    }, 600);
 }
 
 
 function checkAns(idx) {
-    if (userSeq[idx] === gameSeq[idx]) {
-        if (userSeq.length === gameSeq.length) {
-            setTimeout(levelUp, 800);
-        }
-    } else {
-        resetGame();
+    if (userSeq[idx] !== gameSeq[idx]) {
+        gameOver();
+        return;
+    }
+
+    if (userSeq.length === gameSeq.length) {
+        setTimeout(levelUp, 800);
     }
 }
 
-
 function btnPress() {
-    if (!acceptingInput || !started) return;
+    if (!started || !acceptingInput) return;
 
     let btn = this;
-    let userColor = btn.getAttribute('id');
+    let userColor = btn.id;
 
     userFlash(btn);
     userSeq.push(userColor);
@@ -82,13 +81,11 @@ function btnPress() {
 
 let allBtns = document.querySelectorAll('.btn');
 for (let btn of allBtns) {
-    btn.addEventListener('click', btnPress);
-    btn.addEventListener('touchstart', btnPress);
-}
+    btn.addEventListener('click', btnPress); 
 
 
-function resetGame() {
-    h2.innerHTML = `Game Over! Your score was <b>${level - 1}</b><br>Tap or press any key to restart`;
+function gameOver() {
+    h2.innerHTML = `Game Over! Your score was <b>${level - 1}</b><br>Tap status or press key to restart`;
 
     document.body.style.backgroundColor = 'red';
     setTimeout(() => {

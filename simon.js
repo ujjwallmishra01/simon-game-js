@@ -21,7 +21,6 @@ function startGame() {
 
 document.addEventListener('keypress', startGame);
 
-document.addEventListener('touchstart', startGame);
 document.addEventListener('click', startGame);
 
 

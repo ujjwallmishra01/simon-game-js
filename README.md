@@ -1,4 +1,4 @@
-# Simon Game 🎮 | JavaScript Project
+# 🎮 Simon Game | Vanilla JavaScript Project
 
 An interactive **Simon Game** developed using **HTML, CSS, and Vanilla JavaScript**.  
 This project focuses on strengthening JavaScript fundamentals through logic-driven UI interactions.
@@ -64,8 +64,8 @@ Alongside this, I actively work on **Data Science and EDA projects**, aiming to 
 ---
 
 ## 🚀 Live Demo
-
-Coming soon via **GitHub Pages**
+Play the game here 👉  
+🔗 https://ujjwallmishra01.github.io/simon-game-js/
 
 ---
 
@@ -73,3 +73,9 @@ Coming soon via **GitHub Pages**
 
 Suggestions, improvements, and feedback are always welcome.  
 Feel free to fork the repository or drop a ⭐ if you like the project.
+
+## 🔮 Future Improvements
+- Mobile responsiveness
+- Sound effects for each button
+- High-score tracking
+- Difficulty modes

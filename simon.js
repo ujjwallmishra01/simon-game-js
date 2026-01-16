@@ -44,7 +44,7 @@ function levelUp(){
     let randColor = btns[randIdx];
     let btn = document.querySelector(`#${randColor}`);
 
-    gameSeq.push(randColor); // 🔥 REQUIRED
+    gameSeq.push(randColor);
 
     setTimeout(function(){
         gameFlash(btn);
@@ -86,4 +86,5 @@ function reset() {
         }, 150);
     started = false;
     acceptingInput=false;
+
 }

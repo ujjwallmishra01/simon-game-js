@@ -20,7 +20,7 @@ function startGame() {
     levelUp();
 }
 
-document.addEventListener('keypress', startGame);
+document.addEventListener('keydown', startGame);
 h2.addEventListener('click', startGame);
 
 function gameFlash(btn) {

@@ -80,8 +80,12 @@ function btnPress() {
 }
 
 let allBtns = document.querySelectorAll('.btn');
+
 for (let btn of allBtns) {
-    btn.addEventListener('click', btnPress); 
+    btn.addEventListener('click', btnPress);
+}
+
+function gameOver() {
 
 
 function gameOver() {

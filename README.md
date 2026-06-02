@@ -73,9 +73,3 @@ Play the game here 👉
 
 Suggestions, improvements, and feedback are always welcome.  
 Feel free to fork the repository or drop a ⭐ if you like the project.
-
-## 🔮 Future Improvements
-- Mobile responsiveness
-- Sound effects for each button
-- High-score tracking
-- Difficulty modes
